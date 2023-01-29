@@ -1,4 +1,4 @@
-# Plant-Disease-Detector
+# Plant Disease Detector
 
 This repository contains scripts for Plant Disease Detector Application. It takes input the image of leaf and predicts if leaf is healthy or is infected with which disease.
 
