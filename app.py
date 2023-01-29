@@ -1,21 +1,14 @@
-from __future__ import division, print_function
-# coding=utf-8
-import sys
 import os
-import glob
-import re
 import numpy as np
 
 # Keras
-from keras.preprocessing.image import ImageDataGenerator, img_to_array, load_img
-from keras.applications.vgg19 import VGG19, preprocess_input, decode_predictions
+from keras.preprocessing.image import img_to_array, load_img
+from keras.applications.vgg19 import preprocess_input
 from keras.models import load_model
-from keras.preprocessing import image
 
 # Flask utils
-from flask import Flask, redirect, url_for, request, render_template
+from flask import Flask, request, render_template
 from werkzeug.utils import secure_filename
-from gevent.pywsgi import WSGIServer
 
 # Define a flask app
 app = Flask(__name__)
@@ -111,6 +104,8 @@ def upload():
         # Make prediction
         preds = model_predict(file_path, model)
 
+        os.remove(file_path)
+
         # Process your result for human
         # pred_class = preds.argmax(axis=-1)            # Simple argmax
         result = preds.replace("_", " ")                # Convert to string
@@ -121,4 +116,3 @@ def upload():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
