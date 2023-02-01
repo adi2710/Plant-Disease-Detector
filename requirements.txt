@@ -1,5 +1,5 @@
 Flask
 numpy
 Keras
-tensorflow
+tensorflow == 2.9.0
 werkzeug

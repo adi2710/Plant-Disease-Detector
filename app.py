@@ -1,8 +1,7 @@
 import os
 import numpy as np
-
 # Keras
-from keras.preprocessing.image import img_to_array, load_img
+from keras.utils import img_to_array, load_img
 from keras.applications.vgg19 import preprocess_input
 from keras.models import load_model
 
